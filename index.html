@@ -21,7 +21,7 @@ body{
 
   background-image:
     linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-    url("1.jpg");
+    url("01.jpg");
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -101,7 +101,59 @@ h1{
 <body>
   <div class="card">
     <h1>
-      나랑 볼링치러갈래??
+      나랑 밥볼노하러갈래 position:relative;
+  width:280px;
+  height:56px;
+  margin:0 auto;
+  touch-action: manipulation; /* ✅ 모바일 탭 반응 개선 */
+}
+
+.btn{
+  position:absolute;
+  top:0;
+  width:120px;
+  height:48px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  user-select:none;
+  z-index:20;            /* ✅ 클릭 안 막히게 */
+  pointer-events:auto;   /* ✅ 클릭 안 막히게 */
+  transition: transform .15s ease;
+}
+
+.btn:active{ transform:scale(.98); }
+
+.yes{ left:0; background:#ff4d6d; color:#fff; }
+.no { left:160px; background:#d6d6d6; color:#111; }
+
+.result{
+  margin-top:18px;
+  font-size:20px;
+  font-weight:700;
+  color:#ff4d6d;
+  display:none;
+}
+
+.heart{
+  position:fixed;
+  pointer-events:none;
+  animation: float 2.8s linear forwards;
+  z-index:5;
+}
+
+@keyframes float{
+  0%{ transform:translateY(0); opacity:1; }
+  100%{ transform:translateY(-300px); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>
+      나랑 밥볼노하러 갈래??
     </h1>
 
     <div class="btn-container" id="btnArea">
@@ -126,7 +178,7 @@ h1{
 
   yesBtn.addEventListener("click", () => {
     document.body.style.backgroundImage =
-      'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("2.jpg")';
+      'linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url("02.jpg")';
     if (result) result.style.display = "block";
     createHearts();
   });
